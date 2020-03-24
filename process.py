@@ -10,7 +10,7 @@ from data import read_raw_data, \
 
 from display import show_data
 
-from topic import build_topic, model_dict, show_lda_html, show_wordcloud, show_lda_topics
+from topic import build_topic_model_dict, show_lda_html, show_wordcloud, predict, show_lda_topics
 
 from character_filter import remove_unwanted_characters
 
@@ -24,32 +24,35 @@ text_array = []
 
 
 def process_text():
-    collection = read_raw_data
+    # text = "the phone camera is awesome"
+
+    collection = read_raw_data()
 
     for record in collection.find({}):
-    text = record['text']
-    text = text.lower()
-    tmp_text_array = text.split(" ")
 
-    tmp_text_array = remove_unwanted_characters(tmp_text_array)
+        text = record['text']
+        text = text.lower()
+        tmp_text_array = text.split(" ")
 
-    # Change caring to care
-    tmp_text_array = lemmatize(tmp_text_array)
+        tmp_text_array = remove_unwanted_characters(tmp_text_array)
 
-    # remove and be mine
-    tmp_text_array = remove_stopwords(tmp_text_array)
+        # Change caring to care
+        tmp_text_array = lemmatize(tmp_text_array)
 
-    tmp_text_array = token_postag(tmp_text_array)
+        # remove and be mine
+        tmp_text_array = remove_stopwords(tmp_text_array)
 
-    text_array.append(tmp_text_array)
+        tmp_text_array = token_postag(tmp_text_array)
 
-    dict = freq_words(tmp_text_array)
+        text_array.append(tmp_text_array)
 
-    write_data_text_array(text_array)
+        dict = freq_words(tmp_text_array)
 
-    text_array.clear()
+        write_data_text_array(text_array)
 
-    write_data_token_frequency(dict)
+        text_array.clear()
+
+        write_data_token_frequency(dict)
 
 
 def read_token_dict():
@@ -77,6 +80,10 @@ def show_topics_wordcloud():
     show_wordcloud()
 
 
+def show_topics_lda_html():
+    show_lda_html()
+
+
 def predict_topic():
     # predict the text
     mytext = "phone model"
@@ -84,4 +91,4 @@ def predict_topic():
 
 
 def show_topics_lda():
-    show(lda_topics())
+    show_lda_topics()

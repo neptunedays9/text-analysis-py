@@ -30,7 +30,7 @@ show_frequency_graph()
 
 show_topics_lda_html()
 
-show_topics_workcloud()
+show_topics_wordcloud()
 
 # predict
 # predict_topic()

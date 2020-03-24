@@ -1,4 +1,5 @@
-#install
+#install 
+->Install Visual C++ Build tools
 pip install gensim pyLDAvis pymongo spacy matplotlib seaborn
 
 
