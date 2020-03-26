@@ -2,7 +2,7 @@
 
 from matplotlib import pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
-import matplotlib.colrs as mcolors
+import matplotlib.colors as mcolors
 
 from nltk.corpus import stopwords
 stop_words = stopwords.words('english')
@@ -22,9 +22,9 @@ def show_topic_wordcloud(lda_model):
                           height=1800,
                           max_words=10,
                           colormap='tab10',
-                          color_func=lamda *args, **kwargs: cols[i],
+                          color_func=lambda *args, **kwargs: cols[i],
                           prefer_horizontal=1.0)
-
+        
         fig.add_subplot(ax)
         topic_words = dict(topics[i][1])
         cloud.generate_from_frequencies(topic_words, max_font_size=300)

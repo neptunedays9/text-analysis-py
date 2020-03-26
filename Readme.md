@@ -1,6 +1,7 @@
 #install 
-->Install Visual C++ Build tools
-pip install gensim pyLDAvis pymongo spacy matplotlib seaborn
+Install Visual C++ Build tools
+
+pip install gensim pyLDAvis pymongo spacy matplotlib seaborn spacy matplotlib worldcloud nltk
 
 
 #Setup db
