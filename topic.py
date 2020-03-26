@@ -21,7 +21,7 @@ def build_topic_model_dict(text_array):
     global doc_term_matrix
     doc_term_matrix = [dictionary.doc2bow(rev) for rev in text_array]
 
-    #creating the object for LDA model using gensim library
+    # creating the object for LDA model using gensim library
     LDA = gensim.models.ldamodel.LdaModel
 
     #build the model

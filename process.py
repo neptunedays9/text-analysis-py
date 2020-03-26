@@ -58,7 +58,7 @@ def process_text():
 def read_token_dict():
     text_collection = read_dict_token()
     for record in text_collection.find({}):
-        token_dict.update({record['token']: record['count']
+        token_dict.update({record['token']: record['count']})
 
 
 def read_text_array():
@@ -73,7 +73,7 @@ def show_frequency_graph():
 
 def build_topic_model():
     print(text_array)
-    build_topic_model(text_array)
+    build_topic_model_dict(text_array)
 
 
 def show_topics_wordcloud():
