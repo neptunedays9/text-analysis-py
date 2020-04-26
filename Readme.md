@@ -5,6 +5,8 @@ pip install gensim pyLDAvis pymongo spacy matplotlib seaborn spacy matplotlib wo
 
 
 #Setup db
--> install mongo
--> Create a collection named textanalysisdemo
--> add a field "text" and set the text as the value
+* install mongo
+* Create a database named textanalysisdemo
+* Add a collection "text" into this DB
+* Add the sentences to analyse as documents into this collection
+    * Each sentence is to be added as a separate document with a field "text" and value as the sentence
